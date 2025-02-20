@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ride with Shane at RNR Tires: Your Dream Ride, Simplified! Experience top name brands, flexible payment options, free services, and expert advice for your tire and wheel needs.">
+  <title>Ride with Shane at RNR Tires</title>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "RNR Tires",
+    "description": "Ride with Shane at RNR Tires: Your Dream Ride, Simplified! Flexible payment options, top name brands, free premium services, and expert advice.",
+    "url": "https://www.example.com",
+    "telephone": "+1-555-1234567"
+  }
+  </script>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1c1c1c; /* Lighter black */
+      color: silver;
+      line-height: 1.6;
+    }
+    a {
+      color: red;
+      text-decoration: none;
+    }
+    header, main, footer {
+      padding: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('hero-image.jpg') no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(28, 28, 28, 0.7);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: red;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: darkred;
+    }
+
+    /* Index Cards Section */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 40px 0;
+    }
+    .card {
+      background-color: #2a2a2a;
+      border: 1px solid red;
+      border-radius: 8px;
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    .contact-section form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-section label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .contact-section input,
+    .contact-section textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid red;
+      border-radius: 4px;
+      background-color: #1c1c1c;
+      color: silver;
+    }
+    .contact-section input:focus,
+    .contact-section textarea:focus {
+      outline: none;
+      border-color: red;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid red;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (Navigation can be added as needed) -->
+  <header>
+    <nav aria-label="Main Navigation">
+      <!-- Navigation items here -->
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" role="banner">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1>Ride with Shane at RNR Tires: Your Dream Ride, Simplified!</h1>
+      <p>Experience the best in tire and wheel expertise—passion, affordability, and stress-free service all in one.</p>
+      <button class="btn" onclick="document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });">
+        Get Started
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Index Cards Section -->
+    <section class="cards-container" aria-label="Key Features">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">💳</div>
+        <h3>Everyone's Approved Payment Options</h3>
+        <p>Flexible plans regardless of your credit history to get you on the road quickly.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">🏷️</div>
+        <h3>Top Name Brands</h3>
+        <p>Explore a wide selection of high-quality tires and wheels from the brands you trust.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">🛠️</div>
+        <h3>Free Services</h3>
+        <p>Enjoy a premium customer care package including Free Nitrogen, Free Flat Repair, Free Alignment Checks, Free Tire Rotation & Balance, Free Professional Installation, and a 12-Month Roadside Assistance Program.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">🔧</div>
+        <h3>Expert Advice</h3>
+        <p>Receive personalized, honest, and transparent guidance from your local tire and wheel expert, Shane.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section" aria-label="Contact Form">
+      <h2>Ready to transform your ride?</h2>
+      <p>Get a quick quote online or stop by today.</p>
+      <form action="/submit-form" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required aria-required="true" placeholder="Your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required aria-required="true" placeholder="Your Email">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Your Message"></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 RNR Tires. All rights reserved.</p>
+  </footer>
+</body>
+</html>
