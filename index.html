@@ -40,32 +40,24 @@
       padding: 20px;
     }
 
-    /* Hero Section - Updated */
+    /* Hero Section - Standalone Image */
     .hero {
       position: relative;
-      background: url('RNR%20WEB%20DESIGN%20SVG.svg') no-repeat center center;
+      background: url('RNR%20WEB%20DESIGN%20SVG.svg') no-repeat top center;
       background-size: contain;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
+      height: 100vh;
       width: 100%;
-      height: 100%;
-      background-color: rgba(28, 28, 28, 0.85);
     }
 
-    .hero-content {
-      position: relative;
+    /* Welcome Section below hero */
+    .welcome-section {
+      background-color: #2a2a2a;
       text-align: center;
-      z-index: 1;
-      padding: 2rem;
+      padding: 4rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .welcome-content {
       max-width: 800px;
       margin: 0 auto;
     }
@@ -249,10 +241,13 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" role="banner">
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
+  <!-- Hero Section - Just the image -->
+  <section class="hero" role="banner" aria-label="Welcome Banner">
+  </section>
+
+  <!-- Welcome Section - Moved below hero -->
+  <section class="welcome-section">
+    <div class="welcome-content">
       <h1>Ride with Shane at RNR Tires: Your Dream Ride, Simplified!</h1>
       <p>Experience the best in tire and wheel expertise—passion, affordability, and stress-free service all in one.</p>
       <button class="btn" onclick="document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });">
