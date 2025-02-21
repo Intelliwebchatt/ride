@@ -96,6 +96,48 @@
       box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
     }
 
+    /* Audio Player Section */
+    .audio-section {
+      background-color: #2a2a2a;
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 12px;
+      text-align: center;
+      border: 2px solid red;
+    }
+
+    .audio-section h2 {
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .audio-section p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .audio-player {
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    .audio-player audio {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    /* Style the audio player controls */
+    audio::-webkit-media-controls-panel {
+      background-color: #1c1c1c;
+    }
+
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display {
+      color: silver;
+    }
+
     /* Cards Section - Enhanced */
     .cards-container {
       display: grid;
@@ -258,6 +300,18 @@
 
   <!-- Main Content -->
   <main>
+    <!-- Audio Player Section -->
+    <section class="audio-section">
+      <h2>Deep Dive Podcast: RNR Tire Express</h2>
+      <p>Listen to our detailed discussion about RNR Tire Express and what makes us different.</p>
+      <div class="audio-player">
+        <audio controls>
+          <source src="path-to-your-audio.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
     <!-- Index Cards Section -->
     <section class="cards-container" aria-label="Key Features">
       <div class="card">
