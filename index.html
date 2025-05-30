@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shane's Custom Wheel Experience | RnR Tire | Montgomery, AL</title>
+    <meta title="Shane's Custom Wheel Experience | RnR Tire | Montgomery, AL">
     <meta name="description" content="Discover Shane's Custom Wheel Experience at RnR Tire - AI-powered consultations, expert guidance, and educational resources in Montgomery, AL.">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,15 +15,15 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #1E2A44;
+            background: radial-gradient(circle, #1E2A44 0%, #000000 100%); /* Gradient overlay for depth */
             color: #ffffff;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px; /* Reduced for better centering */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px; /* Symmetric padding */
         }
 
         /* Navigation */
@@ -35,6 +35,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
         }
 
         .nav-content {
@@ -74,18 +75,20 @@
         }
 
         .cta-button {
-            background: #FF0000;
+            background: linear-gradient(45deg, #FF0000, #808080); /* Red-to-grey gradient */
             color: #ffffff;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem; /* Increased padding for relaxed feel */
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             margin: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .cta-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
         }
 
         /* Hero Section */
@@ -98,6 +101,7 @@
             text-align: center;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><rect fill="%231E2A44" width="1400" height="800"/><path fill="%23FF0000" d="M0,400 Q700,300 1400,400 T2800,400" opacity="0.1"/></svg>');
             background-size: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .hero video {
@@ -129,9 +133,10 @@
 
         /* Wheel Fitment Basics Section */
         .fitment-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding for relaxed feel */
             background: #000000;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .fitment-section h2 {
@@ -158,11 +163,13 @@
             font-weight: 600;
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .fitment-cta:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
         }
 
         .podcast-player {
@@ -172,6 +179,7 @@
             border: 1px solid #808080;
             max-width: 600px;
             margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .podcast-player audio {
@@ -189,13 +197,13 @@
 
         .podcast-player audio::-webkit-media-controls-play-button,
         .podcast-player audio::-webkit-media-controls-pause-button {
-            background: #FF0000;
+            background: linear-gradient(45deg, #FF0000, #808080); /* Gradient for consistency */
             border-radius: 50%;
         }
 
         /* Consultation Tool */
         .consultation-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding for relaxed feel */
             background: #1E2A44;
             text-align: center;
         }
@@ -203,26 +211,27 @@
         .consultation-container {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 3rem; /* Increased padding */
             border: 1px solid #808080;
-            min-height: 200px; /* Reduced from 600px */
+            min-height: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 2rem; /* Increased gap for relaxed button spacing */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         /* Services Section */
         .services-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding */
             background: #000000;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem; /* Increased gap for relaxed feel */
         }
 
         .service-card {
@@ -231,12 +240,14 @@
             border-radius: 15px;
             text-align: center;
             border: 1px solid #808080;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            border: #FF0000;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+            border-color: #FF0000;
         }
 
         .service-card .icon {
@@ -252,7 +263,7 @@
         }
 
         .payment-requirements {
-            margin-top: 2rem;
+            margin-top: 3rem; /* Increased margin */
             text-align: left;
             max-width: 600px;
             margin-left: auto;
@@ -283,7 +294,7 @@
 
         /* Booking Section */
         .booking-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding */
             background: #1E2A44;
             text-align: center;
         }
@@ -291,17 +302,19 @@
         .booking-container {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 3rem; /* Increased padding */
             border: 1px solid #808080;
             min-height: 630px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         /* Footer */
         .footer {
             background: #000000;
-            padding: 3rem 0;
+            padding: 4rem 0; /* Increased padding */
             text-align: center;
             border-top: 1px solid #808080;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .footer-content {
@@ -354,7 +367,9 @@
             }
 
             .consultation-container {
-                min-height: 300px; /* Slightly larger for mobile to accommodate multiple buttons */
+                min-height: 300px; /* Adjusted for mobile */
+                padding: 2rem;
+                gap: 1.5rem; /* Slightly smaller gap on mobile */
             }
         }
     </style>
