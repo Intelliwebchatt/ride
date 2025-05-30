@@ -15,15 +15,15 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #1E2A44;
+            background: radial-gradient(circle, #1E2A44 0%, #000000 100%); /* Gradient overlay */
             color: #ffffff;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px; /* Reduced for centering */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px; /* Symmetric padding */
         }
 
         /* Navigation */
@@ -35,6 +35,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .nav-content {
@@ -74,24 +75,27 @@
         }
 
         .cta-button {
-            background: #FF0000;
+            background: linear-gradient(45deg, #FF0000, #808080); /* Red-to-grey gradient */
             color: #ffffff;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem; /* Increased padding */
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .cta-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
         }
 
         /* Main Content */
         .about-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding */
             background: #1E2A44;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .about-section h1 {
@@ -113,9 +117,10 @@
         /* Footer */
         .footer {
             background: #000000;
-            padding: 3rem 0;
+            padding: 4rem 0; /* Increased padding */
             text-align: center;
             border-top: 1px solid #808080;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .footer-content {
