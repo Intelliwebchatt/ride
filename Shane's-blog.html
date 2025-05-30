@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shane's Custom Blog | Shane's Custom Wheel Experience | RnR Tire</title>
+    <meta name="description" content="Read Shane's Custom Blog for tips, guides, and insights on wheel fitment and automotive customization at RnR Tire in Montgomery, AL.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #1E2A44;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: #808080;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #808080;
+        }
+
+        .cta-button {
+            background: #FF0000;
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 4rem 0;
+            background: #1E2A44;
+            text-align: center;
+        }
+
+        .blog-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(45deg, #FF0000, #808080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .blog-section p {
+            font-size: 1.2rem;
+            color: #C0C0C0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .blog-post {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #808080;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .blog-post h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF0000;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #808080;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-section p {
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Shane's Wheel Experience at <span style="color: #808080;">RnR Tire</span></div>
+                <div class="hamburger">☰</div>
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#fitment">Fitment Basics</a>
+                    <a href="index.html#consultation">Consultation</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#booking">Book Now</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="about-shane.html">About Shane</a>
+                    <a href="shanes-blog.html">Blog</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="index.html#consultation" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h1>Shane's Custom Blog</h1>
+            <p>Stay updated with the latest tips, guides, and insights on wheel fitment and automotive customization from Shane at RnR Tire.</p>
+            <!-- Add new blog posts below this comment -->
+            <div class="blog-post">
+                <h3>Choosing the Right Wheel Size</h3>
+                <p>Learn how to select the perfect wheel size for your vehicle, balancing style and performance. [Placeholder: Add full blog post content or link.]</p>
+            </div>
+            <div class="blog-post">
+                <h3>Understanding Lug Patterns</h3>
+                <p>A deep dive into lug patterns and why they matter for your custom wheel setup. [Placeholder: Add full blog post content or link.]</p>
+            </div>
+            <div class="blog-post">
+                <h3>Offset Explained</h3>
+                <p>Discover how wheel offset affects your vehicle's look and handling. [Placeholder: Add full blog post content or link.]</p>
+            </div>
+            <!-- End of editable blog posts -->
+            <a href="index.html#consultation" class="cta-button">Try Shane's AI Fitment Tool</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Contact Us</h3>
+                    <p>📞 334.279.0059</p>
+                    <p>📍 1059 N. Eastern Blvd, Montgomery, AL</p>
+                    <p>✉️ RNR703@RNRBSE.COM</p>
+                </div>
+                <div>
+                    <h3>Why Choose Us</h3>
+                    <p>Expert fitment, cutting-edge tools, and a passion for customer satisfaction.</p>
+                </div>
+            </div>
+            <p>© 2025 Shane's Custom Wheel Experience at RnR Tire</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
