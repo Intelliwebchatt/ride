@@ -15,15 +15,15 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #1E2A44;
+            background: radial-gradient(circle, #1E2A44 0%, #000000 100%); /* Gradient overlay */
             color: #ffffff;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px; /* Reduced for centering */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px; /* Symmetric padding */
         }
 
         /* Navigation */
@@ -35,6 +35,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .nav-content {
@@ -74,24 +75,27 @@
         }
 
         .cta-button {
-            background: #FF0000;
-            color: #ffffff;
-            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #FF0000, #808080); /* Gradient */
+            color: 1rem;
+            padding: 2rem; /* Increased padding */
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .cta-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
         }
 
         /* Blog Section */
         .blog-section {
-            padding: 4rem 0;
+            padding: 6rem 0; /* Increased padding */
             background: #1E2A44;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
         .blog-section h1 {
@@ -105,33 +109,34 @@
 
         .blog-section p {
             font-size: 1.2rem;
-            color: #C0C0C0;
-            max-width: 600px;
+            color: #C0C0C0;        max-width: 600px;
             margin: 0 auto 2rem;
         }
 
         .blog-post {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 2rem; /* Increased padding */
+            border-radius: 20px; /* Increased border radius */
             border: 1px solid #808080;
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem; /* Increased margin for spacing */
             text-align: left;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
         }
 
         .blog-post h3 {
             font-family: 'Orbitron', sans-serif;
             color: #FF0000;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         .footer {
             background: #000000;
-            padding: 3rem 0;
+            padding: 4rem 0; /* Increased padding */
             text-align: center;
             border-top: 1px solid #808080;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .footer-content {
@@ -174,6 +179,10 @@
             .nav-menu.active {
                 display: flex;
             }
+
+            .blog-post {
+                margin-bottom: 2rem; /* Adjusted for mobile */
+            }
         }
     </style>
 </head>
@@ -203,20 +212,20 @@
     <!-- Blog Section -->
     <section class="blog-section">
         <div class="container">
-            <h1>Shane's Custom Blog</h1>
+            <h1>Shane’s Custom Blog</h1>
             <p>Stay updated with the latest tips, guides, and insights on wheel fitment and automotive customization from Shane at RnR Tire.</p>
             <!-- Add new blog posts below this comment -->
             <div class="blog-post">
                 <h3>Choosing the Right Wheel Size</h3>
-                <p>Learn how to select the perfect wheel size for your vehicle, balancing style and performance. [Placeholder: Add full blog post content or link.]</p>
+                <p>Learn how to select the perfect wheel size for your vehicle, balancing style and performance. [Placeholder: Add full blog post or link.]</p>
             </div>
             <div class="blog-post">
                 <h3>Understanding Lug Patterns</h3>
-                <p>A deep dive into lug patterns and why they matter for your custom wheel setup. [Placeholder: Add full blog post content or link.]</p>
+                <p>A deep dive into lug patterns and why they matter for your custom wheel setup. [Placeholder: Add content or link.]</p>
             </div>
             <div class="blog-post">
                 <h3>Offset Explained</h3>
-                <p>Discover how wheel offset affects your vehicle's look and handling. [Placeholder: Add full blog post content or link.]</p>
+                <p>Discover how wheel offset affects your vehicle's look and handling. [Placeholder: Add content or link.]</p>
             </div>
             <!-- End of editable blog posts -->
             <a href="index.html#consultation" class="cta-button">Try Shane's AI Fitment Tool</a>
