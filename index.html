@@ -1,342 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ride with Shane at RNR Tires: Your Dream Ride, Simplified! Experience top name brands, flexible payment options, free services, and expert advice for your tire and wheel needs.">
-  <title>Ride with Shane at RNR Tires</title>
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AutomotiveBusiness",
-    "name": "RNR Tires",
-    "description": "Ride with Shane at RNR Tires: Your Dream Ride, Simplified! Flexible payment options, top name brands, free premium services, and expert advice.",
-    "url": "https://www.example.com",
-    "telephone": "+1-555-1234567"
-  }
-  </script>
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1c1c1c;
-      color: silver;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shane's Custom Wheel Experience | RnR Tire | Montgomery, AL</title>
+    <meta name="description" content="Discover Shane's Custom Wheel Experience at RnR Tire - AI-powered consultations, expert guidance, and educational resources in Montgomery, AL.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    a {
-      color: red;
-      text-decoration: none;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #1E2A44;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-    header, main, footer {
-      padding: 20px;
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* Hero Section - Standalone Image */
-    .hero {
-      position: relative;
-      background: url('RNR%20WEB%20DESIGN%20SVG.svg') no-repeat top center;
-      background-size: contain;
-      height: 100vh;
-      width: 100%;
-    }
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
-    /* Welcome Section below hero */
-    .welcome-section {
-      background-color: #2a2a2a;
-      text-align: center;
-      padding: 4rem 2rem;
-      margin-bottom: 2rem;
-    }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .welcome-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #FF0000;
+            text-transform: uppercase;
+        }
 
-    .hero-content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: #808080;
+            cursor: pointer;
+        }
 
-    .hero-content p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      color: #ffffff;
-    }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
 
-    /* Button Styles - Enhanced */
-    .btn {
-      background-color: red;
-      color: #fff;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-    .btn:hover {
-      background-color: darkred;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-    }
+        .nav-menu a:hover {
+            color: #808080;
+        }
 
-    /* SoundCloud Section */
-    .soundcloud-section {
-      background-color: #2a2a2a;
-      padding: 3rem 2rem;
-      margin: 2rem auto;
-      max-width: 800px;
-      border-radius: 12px;
-      text-align: center;
-      border: 2px solid red;
-    }
+        .cta-button {
+            background: #FF0000;
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            margin: 0.5rem;
+        }
 
-    .soundcloud-container {
-      width: 100%;
-      margin: 1rem 0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
 
-    /* Cards Section - Enhanced */
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><rect fill="%231E2A44" width="1400" height="800"/><path fill="%23FF0000" d="M0,400 Q700,300 1400,400 T2800,400" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
 
-    .card {
-      background-color: #2a2a2a;
-      border: 2px solid red;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: darkred;
-      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
-    }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            background: linear-gradient(45deg, #FF0000, #808080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
 
-    .card-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-    }
+        .hero p {
+            font-size: 1.5rem;
+            color: #C0C0C0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
 
-    .card h3 {
-      margin-bottom: 1rem;
-      color: #ffffff;
-      font-size: 1.5rem;
-    }
+        /* Wheel Fitment Basics Section */
+        .fitment-section {
+            padding: 4rem 0;
+            background: #000000;
+            text-align: center;
+        }
 
-    .card p {
-      font-size: 1.1rem;
-    }
+        .fitment-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
 
-    /* Contact Form Section - Enhanced */
-    .contact-section {
-      background-color: #2a2a2a;
-      padding: 3rem;
-      border-radius: 12px;
-      max-width: 700px;
-      margin: 4rem auto;
-      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.2);
-    }
+        .fitment-section p {
+            font-size: 1.2rem;
+            color: #C0C0C0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
 
-    .contact-section h2 {
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
+        .fitment-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF0000, #808080);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
 
-    .contact-section p {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
+        .fitment-cta:hover {
+            transform: scale(1.05);
+        }
 
-    .contact-section form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+        .podcast-player {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #808080;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .contact-section label {
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: #ffffff;
-    }
+        .podcast-player audio {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
 
-    .contact-section input,
-    .contact-section textarea {
-      padding: 1rem;
-      border: 2px solid red;
-      border-radius: 8px;
-      background-color: #1c1c1c;
-      color: silver;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
+        .podcast-player audio::-webkit-media-controls-panel {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid #808080;
+            border-radius: 8px;
+        }
 
-    .contact-section input:focus,
-    .contact-section textarea:focus {
-      outline: none;
-      border-color: darkred;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-    }
+        .podcast-player audio::-webkit-media-controls-play-button,
+        .podcast-player audio::-webkit-media-controls-pause-button {
+            background: #FF0000;
+            border-radius: 50%;
+        }
 
-    /* Footer - Enhanced */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 2px solid red;
-      margin-top: 4rem;
-    }
+        /* Consultation Tool */
+        .consultation-section {
+            padding: 4rem 0;
+            background: #1E2A44;
+            text-align: center;
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
+        .consultation-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #808080;
+            min-height: 200px; /* Reduced from 600px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
 
-      .hero-content p {
-        font-size: 1.2rem;
-      }
+        /* Services Section */
+        .services-section {
+            padding: 4rem 0;
+            background: #000000;
+        }
 
-      .contact-section {
-        padding: 2rem;
-        margin: 2rem;
-      }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
 
-      .card {
-        margin: 1rem;
-      }
-    }
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #808080;
+            transition: transform 0.3s, border-color 0.3s;
+        }
 
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 2rem;
-      }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border: #FF0000;
+        }
 
-      .hero-content p {
-        font-size: 1rem;
-      }
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: #808080;
+            margin-bottom: 1rem;
+        }
 
-      .btn {
-        padding: 12px 24px;
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-requirements {
+            margin-top: 2rem;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .payment-requirements h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
+
+        .payment-requirements ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #C0C0C0;
+        }
+
+        .payment-requirements li {
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-requirements p {
+            color: #808080;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 4rem 0;
+            background: #1E2A44;
+            text-align: center;
+        }
+
+        .booking-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #808080;
+            min-height: 630px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #808080;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .fitment-section h2 {
+                font-size: 2rem;
+            }
+
+            .podcast-player {
+                padding: 1rem;
+            }
+
+            .consultation-container {
+                min-height: 300px; /* Slightly larger for mobile to accommodate multiple buttons */
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header (Navigation can be added as needed) -->
-  <header>
-    <nav aria-label="Main Navigation">
-      <!-- Navigation items here -->
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Shane's Wheel Experience at <span style="color: #808080;">RnR Tire</span></div>
+                <div class="hamburger">☰</div>
+                <div class="nav-menu">
+                    <a href="#home">Home</a>
+                    <a href="#fitment">Fitment Basics</a>
+                    <a href="#consultation">Consultation</a>
+                    <a href="#services">Services</a>
+                    <a href="#booking">Book Now</a>
+                    <a href="#contact">Contact</a>
+                    <a href="about-shane.html">About Shane</a>
+                    <a href="shanes-blog.html">Blog</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="#consultation" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <!-- Hero Section - Just the image -->
-  <section class="hero" role="banner" aria-label="Welcome Banner">
-  </section>
-
-  <!-- Welcome Section - Moved below hero -->
-  <section class="welcome-section">
-    <div class="welcome-content">
-      <h1>Ride with Shane at RNR Tires: Your Dream Ride, Simplified!</h1>
-      <p>Experience the best in tire and wheel expertise—passion, affordability, and stress-free service all in one.</p>
-      <button class="btn" onclick="document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });">
-        Get Started
-      </button>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main>
-    <!-- SoundCloud Section -->
-    <section class="soundcloud-section">
-      <div class="soundcloud-container">
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2039067124&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-      </div>
-      <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">
-        <a href="https://soundcloud.com/shane-lockhart-540309855" title="Shane" target="_blank" style="color: #cccccc; text-decoration: none;">Shane</a> · 
-        <a href="https://soundcloud.com/shane-lockhart-540309855/tires-and-wheels-sizes" title="Tires and Wheels_ Sizes, Patterns, and Custom Trends (1).wav" target="_blank" style="color: #cccccc; text-decoration: none;">Tires and Wheels_ Sizes, Patterns, and Custom Trends (1).wav</a>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video autoplay muted loop>
+            <source src="wheel-animation.mp4" type="video/mp4">
+            <!-- Placeholder for video of rotating wheels -->
+        </video>
+        <div class="container">
+            <h1>Shane's Custom Wheel Experience</h1>
+            <p>Transform your ride with expert guidance and cutting-edge technology at RnR Tire.</p>
+            <a href="#consultation" class="cta-button">Start Your Journey</a>
+        </div>
     </section>
 
-    <!-- Index Cards Section -->
-    <section class="cards-container" aria-label="Key Features">
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">💳</div>
-        <h3>Everyone's Approved Payment Options</h3>
-        <p>Flexible plans regardless of your credit history to get you on the road quickly.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🏷️</div>
-        <h3>Top Name Brands</h3>
-        <p>Explore a wide selection of high-quality tires and wheels from the brands you trust.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🛠️</div>
-        <h3>Free Services</h3>
-        <p>Enjoy a premium customer care package including Free Nitrogen, Free Flat Repair, Free Alignment Checks, Free Tire Rotation & Balance, Free Professional Installation, and a 12-Month Roadside Assistance Program.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">🔧</div>
-        <h3>Expert Advice</h3>
-        <p>Receive personalized, honest, and transparent guidance from your local tire and wheel expert, Shane.</p>
-      </div>
+    <!-- Wheel Fitment Basics Section -->
+    <section class="fitment-section" id="fitment">
+        <div class="container">
+            <h2>Wheel Fitment Basics</h2>
+            <p>Understanding wheel size, lug pattern, and offset is key to getting the perfect fit for your vehicle. I break it down simply so you can make informed decisions.</p>
+            <a href="fitment-guide.html" class="fitment-cta">📚 Read the Full Fitment Guide</a>
+            <p style="color: #C0C0C0; margin-bottom: 1rem;">Prefer to listen? Check out my podcast explaining wheel size, lug pattern, and offset.</p>
+            <div class="podcast-player">
+                <audio controls>
+                    <source src="wheel-fitment-podcast.mp3" type="audio/mpeg">
+                    <p style="color: #C0C0C0;">Your browser does not support the audio element. <a href="wheel-fitment-podcast.mp3" style="color: #808080;">Download the podcast here</a></p>
+                </audio>
+                <p style="color: #999; font-size: 0.8rem; margin-top: 0.5rem;">Replace "wheel-fitment-podcast.mp3" with your actual podcast file URL</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-section" aria-label="Contact Form">
-      <h2>Ready to transform your ride?</h2>
-      <p>Get a quick quote online or stop by today.</p>
-      <form action="/submit-form" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required aria-required="true" placeholder="Your Name">
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required aria-required="true" placeholder="Your Email">
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Your Message"></textarea>
-
-        <button type="submit" class="btn">Submit</button>
-      </form>
+    <!-- Consultation Tool Section -->
+    <section class="consultation-section" id="consultation">
+        <div class="container">
+            <h2>Wheel Wizard: Your Custom Fitment Guide</h2>
+            <p>Explore our advanced AI-assisted fitment tool, designed and developed by Shane, connected to the world's largest fitment database. Generate a personalized PDF report with your vehicle's factory sizes, bolt pattern, offset, and compatible wheel and tire sizes—up to the largest that fit without modifications.</p>
+            <div class="consultation-container">
+                <a href="https://wheel-customizer-aslockhart10.replit.app/" class="cta-button" target="_blank">Try the AI Fitment Tool</a>
+                <a href="about-shane.html" class="cta-button">About Shane</a>
+                <a href="shanes-blog.html" class="cta-button">Shane's Custom Blog</a>
+                <a href="gallery.html" class="cta-button">View Gallery</a>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 RNR Tires. All rights reserved.</p>
-  </footer>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">💰</div>
+                    <h3>6 Months Same as Cash</h3>
+                </div>
+                <div class="service-card">
+                    <div class="icon">✅</div>
+                    <h3>No Credit Check</h3>
+                </div>
+                <div class="service-card">
+                    <div class="icon">💳</div>
+                    <h3>Flexible Payment Plans</h3>
+                </div>
+                <div class="service-card">
+                    <div class="icon">⚡</div>
+                    <h3>Same Day Installation</h3>
+                </div>
+            </div>
+            <div class="payment-requirements">
+                <h3>Requirements to Qualify for Payment Plan</h3>
+                <ul>
+                    <li>Valid driver's license or state ID.</li>
+                    <li>Vehicle registration (vehicle must be registered in your name, or the registered owner must be present for equipment and work).</li>
+                    <li>Proof of income.</li>
+                    <li>$20 down on tires or $50 on wheels and tires.</li>
+                </ul>
+                <p>It's that easy, <a href="#booking" style="color: #FF0000;">book an install today</a>!</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Chatbot Script -->
-  <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="46088"></script>
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <h2>Book Your Appointment</h2>
+            <p>Ready to make it happen? Schedule a visit or call to finalize your wheel setup.</p>
+            <div class="booking-container">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/aslockhart10/free-quote-to-save-money" style="min-width:320px;height:630px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Contact Us</h3>
+                    <p>📞 334.279.0059</p>
+                    <p>📍 1059 N. Eastern Blvd, Montgomery, AL</p>
+                    <p>✉️ RNR703@RNRBSE.COM</p>
+                </div>
+                <div>
+                    <h3>Why Choose Us</h3>
+                    <p>Expert fitment, cutting-edge tools, and a passion for customer satisfaction.</p>
+                </div>
+            </div>
+            <p>© 2025 Shane's Custom Wheel Experience at RnR Tire</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
