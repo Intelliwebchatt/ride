@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta title="Shane's Custom Wheel Experience | RnR Tire | Montgomery, AL">
-    <meta name="description" content="Discover Shane's Custom Wheel Experience at RnR Tire - AI-powered consultations, expert guidance, and educational resources in Montgomery, AL.">
-    <meta link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Shane's Custom Wheel Experience | AI Fitment Tool | RnR Tire Montgomery</title>
+    <meta name="description" content="Get personalized wheel fitment from Shane's AI assistant. Powered by ChatGPT and the world's largest fitment database. Located at RnR Tire Montgomery.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,29 +13,85 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #FF0000;
+            --dark-bg: #0a0a0a;
+            --gray-accent: #808080;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle, #1E2A44 0%, #000000 100%); /* Gradient overlay for depth */
-            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--white);
             overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(128, 128, 128, 0.1) 0%, transparent 50%),
+                var(--dark-bg);
+            animation: pulse 20s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
 
         .container {
-            max-width: 1200px; /* Reduced for better centering */
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px; /* Symmetric padding */
+            padding: 0 20px;
+        }
+
+        /* Sticky Promo Bar */
+        .promo-bar {
+            background: linear-gradient(90deg, var(--primary-red), #cc0000);
+            color: var(--white);
+            text-align: center;
+            padding: 0.8rem;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        .promo-text {
+            animation: slideText 15s linear infinite;
+            display: inline-block;
+            padding-left: 100%;
+            white-space: nowrap;
+        }
+
+        @keyframes slideText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Navigation */
         .nav {
             position: fixed;
-            top: 0;
+            top: 40px;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .nav-content {
@@ -46,352 +102,763 @@
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #FF0000;
-            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-weight: 900;
         }
 
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            color: #808080;
-            cursor: pointer;
+        .logo-main {
+            background: linear-gradient(135deg, var(--primary-red), var(--gray-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--gray-accent);
+            font-weight: 400;
         }
 
         .nav-menu {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-menu a {
-            color: #ffffff;
+            color: var(--white);
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #808080;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #FF0000, #808080); /* Red-to-grey gradient */
-            color: #ffffff;
-            padding: 1rem 2rem; /* Increased padding for relaxed feel */
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin: 0.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-        }
-
-        /* Hero Section */
-        .hero {
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
             position: relative;
-            height: 100vh;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section with AI Tool */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><rect fill="%231E2A44" width="1400" height="800"/><path fill="%23FF0000" d="M0,400 Q700,300 1400,400 T2800,400" opacity="0.1"/></svg>');
-            background-size: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            padding: 140px 0 50px;
+            position: relative;
         }
 
-        .hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-content {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.5;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
         }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            background: linear-gradient(45deg, #FF0000, #808080);
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: #C0C0C0;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+        .hero-highlight {
+            color: var(--primary-red);
+            -webkit-text-fill-color: var(--primary-red);
         }
 
-        /* Wheel Fitment Basics Section */
-        .fitment-section {
-            padding: 6rem 0; /* Increased padding for relaxed feel */
-            background: #000000;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-        }
-
-        .fitment-section h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: #FF0000;
-            margin-bottom: 1rem;
-        }
-
-        .fitment-section p {
+        .hero-description {
             font-size: 1.2rem;
-            color: #C0C0C0;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
         }
 
-        .fitment-cta {
-            display: inline-block;
-            background: linear-gradient(45deg, #FF0000, #808080);
-            color: #ffffff;
-            padding: 1rem 2rem;
-            border-radius: 25px;
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-feature-icon {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+        }
+
+        /* AI Tool CTA Button */
+        .ai-tool-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary-red), #cc0000);
+            color: var(--white);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-tool-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .ai-tool-cta:hover::before {
+            left: 100%;
+        }
+
+        .ai-tool-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+        }
+
+        /* AI Tool Demo Section */
+        .ai-demo {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-header {
+            text-align: center;
             margin-bottom: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
         }
 
-        .fitment-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-        }
-
-        .podcast-player {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
+        .demo-chat {
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
-            border: 1px solid #808080;
+            padding: 1.5rem;
+            min-height: 300px;
+        }
+
+        .demo-message {
+            margin-bottom: 1rem;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-user {
+            text-align: right;
+            color: #4CAF50;
+        }
+
+        .demo-ai {
+            text-align: left;
+            color: var(--primary-red);
+        }
+
+        /* Virtual Showroom */
+        .showroom {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .wheel-sizes {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .wheel-size {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 150px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .wheel-size:hover {
+            transform: scale(1.1);
+            border-color: var(--primary-red);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+
+        .wheel-size-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-red);
+            font-weight: 900;
+        }
+
+        .wheel-size-label {
+            font-size: 1.2rem;
+            color: var(--gray-accent);
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .brand-item {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            font-size: 1.2rem;
+            color: var(--gray-accent);
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+        }
+
+        /* Payment Calculator */
+        .calculator {
+            padding: 80px 0;
+        }
+
+        .calc-container {
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
         }
 
-        .podcast-player audio {
+        .calc-input {
+            margin-bottom: 2rem;
+        }
+
+        .calc-input label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-accent);
+        }
+
+        .calc-input input {
             width: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1.1rem;
         }
 
-        .podcast-player audio::-webkit-media-controls-panel {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid #808080;
-            border-radius: 8px;
+        .payment-options {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .podcast-player audio::-webkit-media-controls-play-button,
-        .podcast-player audio::-webkit-media-controls-pause-button {
-            background: linear-gradient(45deg, #FF0000, #808080); /* Gradient for consistency */
-            border-radius: 50%;
+        .payment-option {
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Consultation Tool */
-        .consultation-section {
-            padding: 6rem 0; /* Increased padding for relaxed feel */
-            background: #1E2A44;
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white), var(--gray-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .benefit-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Requirements Section */
+        .requirements-box {
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .consultation-container {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            padding: 3rem; /* Increased padding */
-            border: 1px solid #808080;
-            min-height: 200px;
+        .requirements-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 2rem;
+        }
+
+        .requirements-list {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 2rem; /* Increased gap for relaxed button spacing */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
-        /* Services Section */
-        .services-section {
-            padding: 6rem 0; /* Increased padding */
-            background: #000000;
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .services-grid {
+        .requirement-icon {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+
+        /* Trust & Authority */
+        .trust-section {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .trust-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem; /* Increased gap for relaxed feel */
+            gap: 2rem;
+            text-align: center;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
+        .trust-item {
             padding: 2rem;
+        }
+
+        .trust-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-red);
+            font-weight: 900;
+        }
+
+        .trust-label {
+            color: var(--gray-accent);
+            margin-top: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            background: var(--glass-bg);
             border-radius: 15px;
-            text-align: center;
-            border: 1px solid #808080;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
-            border-color: #FF0000;
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .service-card .icon {
-            font-size: 2.5rem;
-            color: #808080;
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
             margin-bottom: 1rem;
+            overflow: hidden;
         }
 
-        .service-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #FF0000;
-            margin-bottom: 0.5rem;
-        }
-
-        .payment-requirements {
-            margin-top: 3rem; /* Increased margin */
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .payment-requirements h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #FF0000;
-            margin-bottom: 1rem;
-        }
-
-        .payment-requirements ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            color: #C0C0C0;
-        }
-
-        .payment-requirements li {
-            margin-bottom: 0.5rem;
-        }
-
-        .payment-requirements p {
-            color: #808080;
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
-            margin-top: 1rem;
+            transition: background 0.3s;
         }
 
-        /* Booking Section */
-        .booking-section {
-            padding: 6rem 0; /* Increased padding */
-            background: #1E2A44;
+        .faq-question:hover {
+            background: rgba(255, 0, 0, 0.05);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .booking-container {
-            background: rgba(0, 0, 0, 0.2);
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 630px;
             border-radius: 20px;
-            padding: 3rem; /* Increased padding */
-            border: 1px solid #808080;
-            min-height: 630px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Info Center Link */
+        .info-center-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+
+        .info-center-link:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Live Chat Button */
+        .live-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .live-chat:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .chat-dot {
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
         /* Footer */
         .footer {
-            background: #000000;
-            padding: 4rem 0; /* Increased padding */
-            text-align: center;
-            border-top: 1px solid #808080;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            background: rgba(0, 0, 0, 0.5);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--glass-border);
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer h3 {
+        .footer h4 {
             font-family: 'Orbitron', sans-serif;
-            color: #FF0000;
-            margin-bottom: 1rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
         }
 
-        /* Responsive Design */
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 2;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-red);
+            border-color: var(--primary-red);
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .promo-bar {
+                font-size: 0.9rem;
             }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
+            
             .nav-menu {
                 display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 1rem;
             }
 
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .fitment-section h2 {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .podcast-player {
-                padding: 1rem;
+            .hero-description {
+                font-size: 1rem;
             }
 
-            .consultation-container {
-                min-height: 300px; /* Adjusted for mobile */
-                padding: 2rem;
-                gap: 1.5rem; /* Slightly smaller gap on mobile */
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .wheel-sizes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Mobile Call Button */
+            .mobile-call {
+                position: fixed;
+                bottom: 80px;
+                right: 20px;
+                background: #4CAF50;
+                color: var(--white);
+                padding: 1rem;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+                z-index: 998;
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
+
+    <!-- Promo Bar -->
+    <div class="promo-bar">
+        <div class="promo-text">
+            🔥 $20 DOWN ON TIRES • $50 DOWN ON WHEELS & TIRES • NO CREDIT NEEDED • 6 MONTHS SAME AS CASH • FREE LIFETIME ROTATE & BALANCE 🔥
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">Shane's Wheel Experience at <span style="color: #808080;">RnR Tire</span></div>
-                <div class="hamburger">☰</div>
+                <div class="logo">
+                    <div class="logo-main">SHANE'S CUSTOM WHEEL EXPERIENCE</div>
+                    <div class="logo-sub">Located at RnR Tire Montgomery</div>
+                </div>
                 <div class="nav-menu">
                     <a href="#home">Home</a>
-                    <a href="#fitment">Fitment Basics</a>
-                    <a href="#consultation">Consultation</a>
-                    <a href="#services">Services</a>
+                    <a href="#ai-tool">AI Assistant</a>
+                    <a href="#showroom">Showroom</a>
+                    <a href="#calculator">Calculator</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#faq">FAQ</a>
                     <a href="#booking">Book Now</a>
-                    <a href="#contact">Contact</a>
-                    <a href="about-shane.html">About Shane</a>
-                    <a href="shanes-blog.html">Blog</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="#consultation" class="cta-button">Get Started</a>
+                    <a href="info-center.html">Info Center</a>
                 </div>
             </div>
         </div>
@@ -399,119 +866,98 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video autoplay muted loop>
-            <source src="wheel-animation.mp4" type="video/mp4">
-            <!-- Placeholder for video of rotating wheels -->
-        </video>
         <div class="container">
-            <h1>Shane's Custom Wheel Experience</h1>
-            <p>Transform your ride with expert guidance and cutting-edge technology at RnR Tire.</p>
-            <a href="#consultation" class="cta-button">Start Your Journey</a>
-        </div>
-    </section>
+            <div class="hero-content">
+                <div class="hero-badge">🎯 AI-Powered Wheel Fitment</div>
+                <h1>AI-Powered Wheel Fitment by <span class="hero-highlight">Shane</span></h1>
+                <p class="hero-description">
+                    Get instant, personalized fitment recommendations from Shane's custom-built AI assistant. 
+                    Powered by ChatGPT and the world's largest wheel database. Export to PDF or email your results.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">📄</span>
+                        <span>PDF Export</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✉️</span>
+                        <span>Email Results</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">🤖</span>
+                        <span>ChatGPT Powered</span>
+                    </div>
+                </div>
 
-    <!-- Wheel Fitment Basics Section -->
-    <section class="fitment-section" id="fitment">
-        <div class="container">
-            <h2>Wheel Fitment Basics</h2>
-            <p>Understanding wheel size, lug pattern, and offset is key to getting the perfect fit for your vehicle. I break it down simply so you can make informed decisions.</p>
-            <a href="fitment-guide.html" class="fitment-cta">📚 Read the Full Fitment Guide</a>
-            <p style="color: #C0C0C0; margin-bottom: 1rem;">Prefer to listen? Check out my podcast explaining wheel size, lug pattern, and offset.</p>
-            <div class="podcast-player">
-                <audio controls>
-                    <source src="wheel-fitment-podcast.mp3" type="audio/mpeg">
-                    <p style="color: #C0C0C0;">Your browser does not support the audio element. <a href="wheel-fitment-podcast.mp3" style="color: #808080;">Download the podcast here</a></p>
-                </audio>
-                <p style="color: #999; font-size: 0.8rem; margin-top: 0.5rem;">Replace "wheel-fitment-podcast.mp3" with your actual podcast file URL</p>
+                <a href="#ai-tool" class="ai-tool-cta">
+                    Launch AI Fitment Assistant
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Consultation Tool Section -->
-    <section class="consultation-section" id="consultation">
+    <!-- AI Demo Section -->
+    <section class="ai-demo" id="ai-tool">
         <div class="container">
-            <h2>Wheel Wizard: Your Custom Fitment Guide</h2>
-            <p>Explore our advanced AI-assisted fitment tool, designed and developed by Shane, connected to the world's largest fitment database. Generate a personalized PDF report with your vehicle's factory sizes, bolt pattern, offset, and compatible wheel and tire sizes—up to the largest that fit without modifications.</p>
-            <div class="consultation-container">
-                <a href="https://wheel-customizer-aslockhart10.replit.app/" class="cta-button" target="_blank">Try the AI Fitment Tool</a>
-                <a href="about-shane.html" class="cta-button">About Shane</a>
-                <a href="shanes-blog.html" class="cta-button">Shane's Custom Blog</a>
-                <a href="gallery.html" class="cta-button">View Gallery</a>
+            <div class="section-header">
+                <h2>See The AI In Action</h2>
+                <p>Watch how Shane's AI assistant finds your perfect wheels</p>
+            </div>
+            <div class="demo-container">
+                <div class="demo-header">
+                    <h3>Try a Sample Conversation</h3>
+                </div>
+                <div class="demo-chat">
+                    <div class="demo-message demo-user">
+                        "I have a 2022 Chevy Silverado and want 22 inch wheels"
+                    </div>
+                    <div class="demo-message demo-ai">
+                        "Great choice! For your 2022 Silverado, I recommend 22x10 wheels with a +12 offset..."
+                    </div>
+                    <div class="demo-message demo-ai">
+                        "Based on your truck's specs, here are 3 perfect options..."
+                    </div>
+                </div>
+                <a href="#" class="ai-tool-cta" style="margin-top: 2rem;">
+                    Start Your Fitment Now
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section" id="services">
+    <!-- Virtual Showroom -->
+    <section class="showroom" id="showroom">
         <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">💰</div>
-                    <h3>6 Months Same as Cash</h3>
+            <div class="section-header">
+                <h2>Virtual Showroom</h2>
+                <p>Choose from our available wheel sizes</p>
+            </div>
+            <div class="wheel-sizes">
+                <div class="wheel-size">
+                    <div class="wheel-size-number">18"</div>
+                    <div class="wheel-size-label">INCH</div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">✅</div>
-                    <h3>No Credit Check</h3>
+                <div class="wheel-size">
+                    <div class="wheel-size-number">20"</div>
+                    <div class="wheel-size-label">INCH</div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">💳</div>
-                    <h3>Flexible Payment Plans</h3>
+                <div class="wheel-size">
+                    <div class="wheel-size-number">22"</div>
+                    <div class="wheel-size-label">INCH</div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">⚡</div>
-                    <h3>Same Day Installation</h3>
+                <div class="wheel-size">
+                    <div class="wheel-size-number">24"</div>
+                    <div class="wheel-size-label">INCH</div>
                 </div>
             </div>
-            <div class="payment-requirements">
-                <h3>Requirements to Qualify for Payment Plan</h3>
-                <ul>
-                    <li>Valid driver's license or state ID.</li>
-                    <li>Vehicle registration (vehicle must be registered in your name, or the registered owner must be present for equipment and work).</li>
-                    <li>Proof of income.</li>
-                    <li>$20 down on tires or $50 on wheels and tires.</li>
-                </ul>
-                <p>It's that easy, <a href="#booking" style="color: #FF0000;">book an install today</a>!</p>
-            </div>
+            <p style="color: var(--gray-accent); margin-top: 2rem;">Click any size to see available styles</p>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="booking-section" id="booking">
+    <!-- Brands Section -->
+    <section class="brands">
         <div class="container">
-            <h2>Book Your Appointment</h2>
-            <p>Ready to make it happen? Schedule a visit or call to finalize your wheel setup.</p>
-            <div class="booking-container">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/aslockhart10/free-quote-to-save-money" style="min-width:320px;height:630px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3>Contact Us</h3>
-                    <p>📞 334.279.0059</p>
-                    <p>📍 1059 N. Eastern Blvd, Montgomery, AL</p>
-                    <p>✉️ RNR703@RNRBSE.COM</p>
-                </div>
-                <div>
-                    <h3>Why Choose Us</h3>
-                    <p>Expert fitment, cutting-edge tools, and a passion for customer satisfaction.</p>
-                </div>
-            </div>
-            <p>© 2025 Shane's Custom Wheel Experience at RnR Tire</p>
-        </div>
-    </footer>
-
-    <script>
-        // Hamburger menu toggle
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+            <div class="section-header">
+                <h2>Top Brands We Carry</h2>
+                <p>Quality wheels from trusted manufacturers</p>
