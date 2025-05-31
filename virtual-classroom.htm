@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Classroom | Shane's AI-Powered Wheel Education Center</title>
+    <meta name="description" content="Learn wheel fitment with AI-powered interactive displays. Experience the future of automotive education at Shane's Custom Wheel Experience.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #FF0000;
+            --neon-blue: #00D4FF;
+            --dark-bg: #050505;
+            --gray-accent: #808080;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Futuristic Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .back-button {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--neon-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* AI Assistant */
+        .ai-assistant {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            border-radius: 20px;
+            padding: 1.5rem;
+            max-width: 300px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .ai-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .ai-text {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .ai-name {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Learning Modules */
+        .modules {
+            padding: 60px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 20px;
+        }
+
+        .module-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .module-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .module-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .module-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Interactive Display */
+        .interactive-display {
+            padding: 80px 0;
+            background: rgba(0, 212, 255, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .display-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hologram-container {
+            position: relative;
+            height: 400px;
+            margin: 3rem 0;
+        }
+
+        .hologram-wheel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 3px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+            box-shadow: 
+                0 0 50px rgba(0, 212, 255, 0.5),
+                inset 0 0 50px rgba(0, 212, 255, 0.3);
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hologram-specs {
+            position: absolute;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            border-radius: 10px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .spec-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .spec-2 { top: 20%; right: 10%; animation-delay: 1s; }
+        .spec-3 { bottom: 20%; left: 10%; animation-delay: 2s; }
+        .spec-4 { bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        /* Coming Soon */
+        .coming-soon {
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(255, 0, 0, 0.02);
+        }
+
+        .coming-soon h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .coming-soon-item {
+            background: rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .coming-soon-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .ai-assistant {
+                display: none;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hologram-container {
+                height: 300px;
+            }
+
+            .hologram-wheel {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hologram-specs {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">AI LEARNING CENTER</div>
+            <a href="index.html" class="back-button">
+                ← Back to Main Site
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Future of Wheel Education</h1>
+            <p class="hero-description">
+                Shane's AI-powered classroom brings cutting-edge technology to traditional automotive education. 
+                Learn at your own pace with interactive displays, real-time simulations, and expert guidance.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
+                    <span style="color: var(--neon-blue);">📍 Available In-Shop</span>
+                </div>
+                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
+                    <span style="color: var(--neon-blue);">🤖 AI-Powered</span>
+                </div>
+                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
+                    <span style="color: var(--neon-blue);">🎓 Expert Designed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <div class="ai-avatar">🤖</div>
+        <div class="ai-text">
+            <div class="ai-name">SHANE AI</div>
+            <p>Your personal fitment guide is here to help!</p>
+        </div>
+    </div>
+
+    <!-- Learning Modules -->
+    <section class="modules">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 1rem;">
+                Interactive Learning Modules
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.7); max-width: 600px; margin: 0 auto;">
+                Click any module to begin your journey. Each lesson includes hands-on demonstrations and real-world examples.
+            </p>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon">📏</div>
+                <h3 class="module-title">Wheel Sizing 101</h3>
+                <p class="module-description">
+                    Understanding diameter, width, and how they affect your vehicle's performance and appearance.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>Interactive Demo Available</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">⚙️</div>
+                <h3 class="module-title">Offset & Backspacing</h3>
+                <p class="module-description">
+                    Master the science of wheel positioning for perfect stance and clearance.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>3D Visualization Ready</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">🔩</div>
+                <h3 class="module-title">Bolt Patterns Explained</h3>
+                <p class="module-description">
+                    Learn how to identify and match bolt patterns for safe, proper fitment.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>AR Pattern Scanner</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">🏁</div>
+                <h3 class="module-title">Performance vs Style</h3>
+                <p class="module-description">
+                    Find the perfect balance between aesthetics and functionality for your needs.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>Comparison Tools</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">🛞</div>
+                <h3 class="module-title">Tire Pairing Guide</h3>
+                <p class="module-description">
+                    Match the right tires to your wheels for optimal performance and safety.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>Database Connected</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">💎</div>
+                <h3 class="module-title">Finish & Care</h3>
+                <p class="module-description">
+                    Explore different wheel finishes and learn proper maintenance techniques.
+                </p>
+                <div class="module-status">
+                    <span class="status-dot"></span>
+                    <span>Material Samples</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Display -->
+    <section class="interactive-display">
+        <div class="display-container">
+            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 1rem;">
+                Live Holographic Display
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem;">
+                See your wheel choices come to life with our in-shop holographic visualization system
+            </p>
+            
+            <div class="hologram-container">
+                <div class="hologram-wheel"></div>
+                <div class="hologram-specs spec-1">
+                    <strong>Size:</strong> 22x10<br>
+                    <strong>Offset:</strong> +12mm
+                </div>
+                <div class="hologram-specs spec-2">
+                    <strong>Bolt Pattern:</strong> 6x139.7<br>
+                    <strong>Hub Bore:</strong> 78.1mm
+                </div>
+                <div class="hologram-specs spec-3">
+                    <strong>Load Rating:</strong> 2,500 lbs<br>
+                    <strong>Finish:</strong> Gloss Black
+                </div>
+                <div class="hologram-specs spec-4">
+                    <strong>Backspace:</strong> 5.47"<br>
+                    <strong>Weight:</strong> 32 lbs
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon">
+        <h2>Coming Soon to Our Classroom</h2>
+        <div class="coming-soon-grid">
+            <div class="coming-soon-item">
+                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">VR Experience</h3>
+                <p>See wheels on your exact vehicle in virtual reality</p>
+            </div>
+            <div class="coming-soon-item">
+                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">Touch Tables</h3>
+                <p>Interactive displays for hands-on learning</p>
+            </div>
+            <div class="coming-soon-item">
+                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">AI Certification</h3>
+                <p>Earn badges as you complete modules</p>
+            </div>
+            <div class="coming-soon-item">
+                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">Group Sessions</h3>
+                <p>Learn with other enthusiasts in scheduled classes</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add interactive elements
+        document.querySelectorAll('.module-card').forEach(card => {
+            card.addEventListener('click', function() {
+                alert('Module content coming soon! This will launch an interactive learning experience.');
+            });
+        });
+
+        // Animate AI assistant messages
+        const aiMessages = [
+            "Welcome to the future of learning!",
+            "Click any module to start learning",
+            "I'm here to guide you through each lesson",
+            "Ask me anything about wheel fitment!"
+        ];
+        
+        let messageIndex = 0;
+        setInterval(() => {
+            const aiText = document.querySelector('.ai-text p');
+            aiText.style.opacity = '0';
+            setTimeout(() => {
+                aiText.textContent = aiMessages[messageIndex];
+                aiText.style.opacity = '1';
+                messageIndex = (messageIndex + 1) % aiMessages.length;
+            }, 500);
+        }, 4000);
+    </script>
+</body>
+</html>
