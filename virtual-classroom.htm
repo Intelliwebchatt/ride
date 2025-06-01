@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Classroom | Shane's AI-Powered Wheel Education Center</title>
-    <meta name="description" content="Learn wheel fitment with AI-powered interactive displays. Experience the future of automotive education at Shane's Custom Wheel Experience.">
+    <title>Shane's Custom Wheel Experience | AI Fitment Tool | RnR Tire Montgomery</title>
+    <meta name="description" content="Get personalized wheel fitment from Shane's AI assistant. Powered by ChatGPT and the world's largest fitment database. Located at RnR Tire Montgomery.">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,12 +15,11 @@
 
         :root {
             --primary-red: #FF0000;
-            --neon-blue: #00D4FF;
-            --dark-bg: #050505;
+            --dark-bg: #0a0a0a;
             --gray-accent: #808080;
             --white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
 
         body {
@@ -28,27 +27,33 @@
             background: var(--dark-bg);
             color: var(--white);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Futuristic Grid Background */
-        .grid-background {
+        .bg-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: grid-move 20s linear infinite;
+            background: 
+                url('wheel-bg.png') center/cover no-repeat,
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(128, 128, 128, 0.15) 0%, transparent 50%),
+                var(--dark-bg);
+            animation: pulse 15s ease-in-out infinite;
         }
 
-        @keyframes grid-move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
 
         /* Navigation */
@@ -56,18 +61,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(5, 5, 5, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--neon-blue);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -77,547 +79,712 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             font-weight: 900;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
 
-        .back-button {
-            background: transparent;
-            border: 2px solid var(--neon-blue);
-            color: var(--neon-blue);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+        .logo-main {
+            background: linear-gradient(135deg, var(--primary-red), var(--gray-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            color: var(--gray-accent);
+            font-weight: 400;
+        }
+
+        .nav-menu {
             display: flex;
+            gap: 2.5rem;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .back-button:hover {
-            background: var(--neon-blue);
-            color: var(--dark-bg);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             padding: 120px 0 60px;
-            text-align: center;
             position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 0, 0, 0.8); }
         }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
             font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--neon-blue) 100%);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white), var(--gray-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-highlight {
+            color: var(--primary-red);
+            -webkit-text-fill-color: var(--primary-red);
         }
 
         .hero-description {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 900px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.9;
         }
 
-        /* AI Assistant */
-        .ai-assistant {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 2px solid var(--neon-blue);
-            border-radius: 20px;
-            padding: 1.5rem;
-            max-width: 300px;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            animation: float 3s ease-in-out infinite;
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3.5rem 0;
+            flex-wrap: wrap;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .ai-avatar {
-            width: 60px;
-            height: 60px;
-            background: var(--neon-blue);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
+        .hero-feature {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-        }
-
-        .ai-text {
-            text-align: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
             color: var(--white);
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border-radius: 10px;
+            transition: transform 0.3s;
         }
 
-        .ai-name {
-            font-family: 'Orbitron', sans-serif;
+        .hero-feature:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-feature-icon {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+        }
+
+        .ai-tool-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary-red), #cc0000);
+            color: var(--white);
+            padding: 1.5rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Learning Modules */
-        .modules {
-            padding: 60px 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 0 20px;
-        }
-
-        .module-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s;
         }
 
-        .module-card::before {
+        .ai-tool-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .ai-tool-cta:hover::before {
+            left: 100%;
+        }
+
+        .ai-tool-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white), var(--gray-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.1), transparent);
+            transition: transform 0.5s;
         }
 
-        .module-card:hover::before {
-            opacity: 1;
+        .benefit-card:hover::before {
+            transform: scale(1.5);
         }
 
-        .module-card:hover {
+        .benefit-card:hover {
             transform: translateY(-5px);
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            border-color: rgba(255, 0, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .module-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 2px solid var(--neon-blue);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
+        .benefit-icon {
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-        }
-
-        .module-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: var(--neon-blue);
-            margin-bottom: 1rem;
-        }
-
-        .module-description {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem;
-        }
-
-        .module-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--neon-blue);
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--neon-blue);
-            border-radius: 50%;
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* Interactive Display */
-        .interactive-display {
-            padding: 80px 0;
-            background: rgba(0, 212, 255, 0.02);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .display-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .hologram-container {
-            position: relative;
-            height: 400px;
-            margin: 3rem 0;
-        }
-
-        .hologram-wheel {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            border: 3px solid var(--neon-blue);
-            border-radius: 50%;
-            animation: rotate 10s linear infinite;
-            box-shadow: 
-                0 0 50px rgba(0, 212, 255, 0.5),
-                inset 0 0 50px rgba(0, 212, 255, 0.3);
-        }
-
-        @keyframes rotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        .hologram-specs {
-            position: absolute;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--neon-blue);
-            border-radius: 10px;
-            padding: 1rem;
-            font-size: 0.9rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .spec-1 { top: 20%; left: 10%; animation-delay: 0s; }
-        .spec-2 { top: 20%; right: 10%; animation-delay: 1s; }
-        .spec-3 { bottom: 20%; left: 10%; animation-delay: 2s; }
-        .spec-4 { bottom: 20%; right: 10%; animation-delay: 3s; }
-
-        /* Coming Soon */
-        .coming-soon {
-            padding: 60px 0;
-            text-align: center;
-            background: rgba(255, 0, 0, 0.02);
-        }
-
-        .coming-soon h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
             color: var(--primary-red);
+        }
+
+        .benefit-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .benefit-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+        }
+
+        /* Requirements Box */
+        .requirements-box {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .requirements-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin-bottom: 2.5rem;
+        }
+
+        .requirements-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.2rem;
             margin-bottom: 2rem;
         }
 
-        .coming-soon-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .requirements-list {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
         }
 
-        .coming-soon-item {
-            background: rgba(255, 0, 0, 0.05);
-            border: 1px solid rgba(255, 0, 0, 0.2);
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .requirement-icon {
+            color: #4CAF50;
+            font-size: 1.8rem;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .incentive-banner {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .incentive-banner p {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .incentive-banner strong {
+            color: var(--primary-red);
+        }
+
+        .calendly-wrapper {
+            position: relative;
+            padding: 10px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, var(--primary-red), var(--gray-accent));
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 0, 0, 0.8); }
+        }
+
+        .calendly-inline-widget {
+            background: var(--dark-bg);
             border-radius: 15px;
-            padding: 1.5rem;
+            overflow: visible !important;
+        }
+
+        .calendly-inline-widget iframe {
+            width: 100% !important;
+            height: 700px !important;
+            border: none;
+        }
+
+        .calendly-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 700px;
+            color: var(--white);
+            background: var(--dark-bg);
+            border-radius: 15px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--gray-accent);
+            border-top: 5px solid var(--primary-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .calendly-inline-widget iframe[style*="height"] ~ .calendly-loading {
+            display: none !important;
+        }
+
+        .calendly-fallback {
+            display: none;
+            text-align: center;
+            color: var(--primary-red);
+            margin-top: 1rem;
+        }
+
+        .calendly-fallback a {
+            color: var(--primary-red);
+            text-decoration: underline;
+        }
+
+        .info-center-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 2.5rem;
+        }
+
+        .info-center-link:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-red);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .footer p, .footer a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            line-height: 2.2;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
             transition: all 0.3s;
         }
 
-        .coming-soon-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        .social-links a:hover {
+            background: var(--primary-red);
+            border-color: var(--primary-red);
+            transform: scale(1.1);
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .container {
+                padding: 0 20px;
             }
-
-            .ai-assistant {
+            .nav-menu {
                 display: none;
             }
-
-            .modules-grid {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            .hero-features {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
-
-            .hologram-container {
-                height: 300px;
+            .requirements-list {
+                flex-direction: column;
+                gap: 1.5rem;
             }
-
-            .hologram-wheel {
-                width: 200px;
-                height: 200px;
+            .calendly-inline-widget {
+                height: 650px !important;
             }
-
-            .hologram-specs {
-                display: none;
+            .calendly-wrapper {
+                padding: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="grid-background"></div>
+    <div class="bg-animation"></div>
 
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-content">
-            <div class="logo">AI LEARNING CENTER</div>
-            <a href="index.html" class="back-button">
-                ← Back to Main Site
-            </a>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <div class="logo-main">SHANE'S CUSTOM WHEEL EXPERIENCE</div>
+                    <div class="logo-sub">Located at RnR Tire Montgomery</div>
+                </div>
+                <div class="nav-menu">
+                    <a href="#home">Home</a>
+                    <a href="#ai-tool">AI Fitment Tool</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#booking">Book Now</a>
+                    <a href="info-center.html">Fitment Guide</a>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to the Future of Wheel Education</h1>
-            <p class="hero-description">
-                Shane's AI-powered classroom brings cutting-edge technology to traditional automotive education. 
-                Learn at your own pace with interactive displays, real-time simulations, and expert guidance.
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
-                    <span style="color: var(--neon-blue);">📍 Available In-Shop</span>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🚗 AI-Powered Precision Fitment</div>
+                <h1>Find Your Perfect Wheels with <span class="hero-highlight">Shane’s AI</span></h1>
+                <p class="hero-description">
+                    Discover the ultimate wheel fitment experience with Shane’s AI assistant, powered by ChatGPT and the world’s largest fitment database. Get instant recommendations, export to PDF, or email your results.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">📄</span>
+                        <span>Export to PDF</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✉️</span>
+                        <span>Email Results</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">🤖</span>
+                        <span>ChatGPT-Powered</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">⚡</span>
+                        <span>Instant Results</span>
+                    </div>
                 </div>
-                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
-                    <span style="color: var(--neon-blue);">🤖 AI-Powered</span>
+                <a href="#ai-tool" class="ai-tool-cta">Launch AI Fitment Tool</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose RnR?</h2>
+                <p>Unbeatable perks for your custom wheel journey</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">💰</span>
+                    <div class="benefit-title">6 Months Same as Cash</div>
+                    <div class="benefit-description">No credit check needed!</div>
                 </div>
-                <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid var(--neon-blue); border-radius: 30px; padding: 0.5rem 1.5rem;">
-                    <span style="color: var(--neon-blue);">🎓 Expert Designed</span>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💵</span>
+                    <div class="benefit-title">Low Down Payments</div>
+                    <div class="benefit-description">$20 down on tires, $50 on wheels & tires</div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔧</span>
+                    <div class="benefit-title">Lifetime Services</div>
+                    <div class="benefit-description">Free rotate, balance, and flat repair</div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🚗</span>
+                    <div class="benefit-title">1 Year Roadside</div>
+                    <div class="benefit-description">Drive with confidence anywhere</div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛡️</span>
+                    <div class="benefit-title">Free Replacement</div>
+                    <div class="benefit-description">Unfixable tire? We replace it free*</div>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📦</span>
+                    <div class="benefit-title">Package Deals</div>
+                    <div class="benefit-description">Custom wheel and tire bundles</div>
+                </div>
+            </div>
+            <div class="requirements-box">
+                <h3>Start Your Journey Today</h3>
+                <p>All you need to qualify for our flexible payment plans:</p>
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <span class="requirement-icon">✓</span>
+                        <span>Driver’s License or ID</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">✓</span>
+                        <span>Vehicle Registration</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">✓</span>
+                        <span>Proof of Income</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Assistant -->
-    <div class="ai-assistant">
-        <div class="ai-avatar">🤖</div>
-        <div class="ai-text">
-            <div class="ai-name">SHANE AI</div>
-            <p>Your personal fitment guide is here to help!</p>
-        </div>
-    </div>
-
-    <!-- Learning Modules -->
-    <section class="modules">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 1rem;">
-                Interactive Learning Modules
-            </h2>
-            <p style="color: rgba(255, 255, 255, 0.7); max-width: 600px; margin: 0 auto;">
-                Click any module to begin your journey. Each lesson includes hands-on demonstrations and real-world examples.
-            </p>
-        </div>
-
-        <div class="modules-grid">
-            <div class="module-card">
-                <div class="module-icon">📏</div>
-                <h3 class="module-title">Wheel Sizing 101</h3>
-                <p class="module-description">
-                    Understanding diameter, width, and how they affect your vehicle's performance and appearance.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>Interactive Demo Available</span>
+    <!-- Calendar Section -->
+    <section class="calendar-section" id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Your Wheel Fitment Appointment</h2>
+                <p>Schedule with Shane for a personalized wheel installation experience!</p>
+            </div>
+            <div class="incentive-banner">
+                <p>🎉 <strong>Free Fitment Consultation</strong> when you book today!</p>
+            </div>
+            <div class="calendly-wrapper">
+                <div class="calendly-loading">
+                    <div class="spinner"></div>
+                    <p>Loading your booking options...</p>
+                </div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/aslockhart10/free-quote-to-save-money" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+                <div class="calendly-fallback" style="display: none; text-align: center; color: var(--primary-red); margin-top: 1rem;">
+                    <p>Unable to load calendar. <a href="https://calendly.com/aslockhart10/free-quote-to-save-money" target="_blank" style="color: var(--primary-red); text-decoration: underline;">Book directly</a> or call 334.279.0059.</p>
                 </div>
             </div>
-
-            <div class="module-card">
-                <div class="module-icon">⚙️</div>
-                <h3 class="module-title">Offset & Backspacing</h3>
-                <p class="module-description">
-                    Master the science of wheel positioning for perfect stance and clearance.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>3D Visualization Ready</span>
-                </div>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">🔩</div>
-                <h3 class="module-title">Bolt Patterns Explained</h3>
-                <p class="module-description">
-                    Learn how to identify and match bolt patterns for safe, proper fitment.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>AR Pattern Scanner</span>
-                </div>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">🏁</div>
-                <h3 class="module-title">Performance vs Style</h3>
-                <p class="module-description">
-                    Find the perfect balance between aesthetics and functionality for your needs.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>Comparison Tools</span>
-                </div>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">🛞</div>
-                <h3 class="module-title">Tire Pairing Guide</h3>
-                <p class="module-description">
-                    Match the right tires to your wheels for optimal performance and safety.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>Database Connected</span>
-                </div>
-            </div>
-
-            <div class="module-card">
-                <div class="module-icon">💎</div>
-                <h3 class="module-title">Finish & Care</h3>
-                <p class="module-description">
-                    Explore different wheel finishes and learn proper maintenance techniques.
-                </p>
-                <div class="module-status">
-                    <span class="status-dot"></span>
-                    <span>Material Samples</span>
-                </div>
-            </div>
+            <a href="info-center.html" class="info-center-link">Explore Wheel Fitment Guide →</a>
         </div>
     </section>
 
-    <!-- Interactive Display -->
-    <section class="interactive-display">
-        <div class="display-container">
-            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--neon-blue); margin-bottom: 1rem;">
-                Live Holographic Display
-            </h2>
-            <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 2rem;">
-                See your wheel choices come to life with our in-shop holographic visualization system
-            </p>
-            
-            <div class="hologram-container">
-                <div class="hologram-wheel"></div>
-                <div class="hologram-specs spec-1">
-                    <strong>Size:</strong> 22x10<br>
-                    <strong>Offset:</strong> +12mm
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Shane's Custom Wheel Experience</h4>
+                    <p>AI-powered wheel fitment at its best</p>
+                    <p>Located at RnR Tire Montgomery</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
                 </div>
-                <div class="hologram-specs spec-2">
-                    <strong>Bolt Pattern:</strong> 6x139.7<br>
-                    <strong>Hub Bore:</strong> 78.1mm
+                <div>
+                    <h4>Quick Links</h4>
+                    <p><a href="#ai-tool">AI Fitment Tool</a></p>
+                    <p><a href="info-center.html">Fitment Guide</a></p>
+                    <p><a href="#benefits">Financing Options</a></p>
+                    <p><a href="#booking">Book Appointment</a></p>
                 </div>
-                <div class="hologram-specs spec-3">
-                    <strong>Load Rating:</strong> 2,500 lbs<br>
-                    <strong>Finish:</strong> Gloss Black
+                <div>
+                    <h4>Contact Info</h4>
+                    <p>📞 334.279.0059</p>
+                    <p>📍 1059 N. Eastern Blvd</p>
+                    <p>Montgomery, AL 36117</p>
+                    <p>✉️ RNR703@RNRBSE.COM</p>
                 </div>
-                <div class="hologram-specs spec-4">
-                    <strong>Backspace:</strong> 5.47"<br>
-                    <strong>Weight:</strong> 32 lbs
+                <div>
+                    <h4>Store Hours</h4>
+                    <p>Monday - Friday: 9AM - 6PM</p>
+                    <p>Saturday: 9AM - 5PM</p>
+                    <p>Sunday: Closed</p>
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem;">*When enrolled in payment program</p>
                 </div>
+            </div>
+            <div style="text-align: center; padding-top: 3rem; border-top: 1px solid var(--glass-border);">
+                <p>© 2025 Shane's Custom Wheel Experience at RnR Tire Montgomery. All rights reserved.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Coming Soon -->
-    <section class="coming-soon">
-        <h2>Coming Soon to Our Classroom</h2>
-        <div class="coming-soon-grid">
-            <div class="coming-soon-item">
-                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">VR Experience</h3>
-                <p>See wheels on your exact vehicle in virtual reality</p>
-            </div>
-            <div class="coming-soon-item">
-                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">Touch Tables</h3>
-                <p>Interactive displays for hands-on learning</p>
-            </div>
-            <div class="coming-soon-item">
-                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">AI Certification</h3>
-                <p>Earn badges as you complete modules</p>
-            </div>
-            <div class="coming-soon-item">
-                <h3 style="color: var(--primary-red); margin-bottom: 0.5rem;">Group Sessions</h3>
-                <p>Learn with other enthusiasts in scheduled classes</p>
-            </div>
-        </div>
-    </section>
+    </footer>
 
     <script>
-        // Add interactive elements
-        document.querySelectorAll('.module-card').forEach(card => {
-            card.addEventListener('click', function() {
-                alert('Module content coming soon! This will launch an interactive learning experience.');
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Animate AI assistant messages
-        const aiMessages = [
-            "Welcome to the future of learning!",
-            "Click any module to start learning",
-            "I'm here to guide you through each lesson",
-            "Ask me anything about wheel fitment!"
-        ];
-        
-        let messageIndex = 0;
-        setInterval(() => {
-            const aiText = document.querySelector('.ai-text p');
-            aiText.style.opacity = '0';
-            setTimeout(() => {
-                aiText.textContent = aiMessages[messageIndex];
-                aiText.style.opacity = '1';
-                messageIndex = (messageIndex + 1) % aiMessages.length;
-            }, 500);
-        }, 4000);
+        // Parallax effect for background
+        window.addEventListener('scroll', function() {
+            const bg = document.querySelector('.bg-animation');
+            bg.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+        });
+
+        // Calendly widget loading check
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const widget = document.querySelector('.calendly-inline-widget iframe');
+                const fallback = document.querySelector('.calendly-fallback');
+                const spinner = document.querySelector('.calendly-loading');
+                if (widget && widget.offsetHeight > 0) {
+                    spinner.style.display = 'none';
+                } else {
+                    fallback.style.display = 'block';
+                    spinner.style.display = 'none';
+                }
+            }, 3000);
+        });
     </script>
 </body>
 </html>
