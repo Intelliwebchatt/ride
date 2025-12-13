@@ -3,29 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trending in Alabama</title>
+  <title>Alabama Trending Searches</title>
 
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root{
-      --bg0:#070A12;
-      --bg1:#0A1022;
-      --glass:rgba(255,255,255,.06);
-      --glass2:rgba(255,255,255,.10);
-      --border:rgba(255,255,255,.10);
+      --bg0:#05060A;
+      --bg1:#0B1020;
+      --glass:rgba(255,255,255,0.07);
+      --glassHover:rgba(255,255,255,0.11);
+      --border:rgba(255,255,255,0.12);
     }
 
     body{
+      margin:0;
+      min-height:100vh;
       background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(79,70,229,.18), transparent 60%),
-        radial-gradient(900px 600px at 85% 18%, rgba(16,185,129,.14), transparent 55%),
-        radial-gradient(1200px 900px at 60% 95%, rgba(236,72,153,.10), transparent 55%),
+        radial-gradient(900px 600px at 20% 15%, rgba(220,38,38,0.22), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(59,130,246,0.18), transparent 60%),
+        radial-gradient(1200px 900px at 50% 90%, rgba(99,102,241,0.14), transparent 60%),
         linear-gradient(180deg,var(--bg0),var(--bg1));
       color:#fff;
-      min-height:100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
+    /* subtle grain */
     body::before{
       content:"";
       position:fixed;
@@ -33,65 +37,98 @@
       pointer-events:none;
       opacity:.12;
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     }
 
     .glass{
       background:var(--glass);
       border:1px solid var(--border);
       backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
     }
 
+    .card{
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
     .card:hover{
       transform:translateY(-2px);
-      background:var(--glass2);
+      background:var(--glassHover);
+      border-color:rgba(255,255,255,0.18);
     }
   </style>
 </head>
 
 <body>
-  <main class="max-w-6xl mx-auto px-4 py-8">
-    <header class="mb-8">
-      <h1 class="text-2xl font-semibold">Trending Searches</h1>
-      <p class="text-sm text-white/60">Alabama · Public attention snapshot</p>
 
-      <div class="flex flex-wrap gap-2 mt-4 text-xs">
-        <span id="scope" class="glass rounded-full px-3 py-1">Scope: Alabama</span>
-        <span id="window" class="glass rounded-full px-3 py-1">Last 24 hours</span>
-        <span id="updated" class="glass rounded-full px-3 py-1">Updated: --</span>
+  <!-- TICKET TAPE -->
+  <div class="w-full bg-black border-b border-red-600/60">
+    <div class="max-w-6xl mx-auto px-4 py-2">
+      <span class="text-red-500 font-semibold tracking-wide text-sm uppercase">
+        Alabama Trending Searches
+      </span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="min-h-screen flex flex-col items-center px-4 pt-12">
+
+    <!-- META ROW -->
+    <div class="flex gap-3 mb-10">
+      <div id="window"
+        class="glass rounded-full px-4 py-2 text-sm text-white/80">
+        Last 24 hours
       </div>
-    </header>
+      <div id="updated"
+        class="glass rounded-full px-4 py-2 text-sm text-white/80">
+        Updated: --
+      </div>
+    </div>
 
-    <section id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></section>
+    <!-- CARDS -->
+    <section id="grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl">
+    </section>
 
-    <footer class="mt-10 text-xs text-white/45">
-      Data reflects search attention, not verified events.
-    </footer>
+    <!-- FOOTER -->
+    <p class="text-xs text-white/40 mt-12 text-center max-w-md">
+      Data reflects public search attention, not verified events.
+    </p>
+
   </main>
 
 <script>
-fetch("./data/trending.json",{cache:"no-store"})
-  .then(r=>r.json())
-  .then(data=>{
-    document.getElementById("window").textContent =
-      data.meta.time_window_label;
-    document.getElementById("updated").textContent =
-      "Updated: " + data.meta.generated_at_local;
+  fetch("./data/trending.json",{cache:"no-store"})
+    .then(r=>{
+      if(!r.ok) throw new Error("load failed");
+      return r.json();
+    })
+    .then(data=>{
+      document.getElementById("window").textContent =
+        data.meta?.time_window_label || "Last 24 hours";
 
-    const grid=document.getElementById("grid");
-    grid.innerHTML=data.cards
-      .sort((a,b)=>b.display_priority-a.display_priority)
-      .map(c=>`
-        <div class="glass card rounded-xl p-4 transition">
-          <div class="text-xs text-white/60 mb-2">${c.category}</div>
-          <div class="text-lg font-medium">${c.title}</div>
-        </div>
-      `).join("");
-  })
-  .catch(()=>{
-    document.getElementById("grid").innerHTML=
-      "<div class='glass p-4 rounded-xl'>Data unavailable</div>";
-  });
+      document.getElementById("updated").textContent =
+        "Updated: " + (data.meta?.generated_at_local || "--");
+
+      const grid = document.getElementById("grid");
+
+      grid.innerHTML = (data.cards || [])
+        .sort((a,b)=> (b.display_priority||0) - (a.display_priority||0))
+        .map(c=>`
+          <div class="glass card rounded-xl p-5">
+            <div class="text-xs text-white/60 mb-2 capitalize">
+              ${c.category || "unclassified"}
+            </div>
+            <div class="text-xl font-semibold leading-snug">
+              ${c.title}
+            </div>
+          </div>
+        `).join("");
+    })
+    .catch(()=>{
+      document.getElementById("grid").innerHTML =
+        "<div class='glass rounded-xl p-5 text-white/70'>Data unavailable</div>";
+    });
 </script>
+
 </body>
 </html>
