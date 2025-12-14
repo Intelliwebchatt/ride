@@ -1,12 +1,17 @@
 {
   "meta": {
-    "uploadedAt": "Dec 14, 04:25 AM"
+    "uploadedAt": "Dec 14, 12:35 PM"
   },
   "markets": [
     {
       "name": "S&P 500",
       "price": "6,827",
       "change": "-1.1%"
+    },
+    {
+      "name": "Bitcoin",
+      "price": "89,489",
+      "change": "-0.9%"
     },
     {
       "name": "NVIDIA",
@@ -16,24 +21,24 @@
   ],
   "news": [
     {
-      "headline": "Brown University shooting: Manhunt underway after 2 killed, 8 wounded - ABC News",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWlI5NEt3RVR5Qy1jOGoycmlCU2ZENDU2MHJTSTUwNVFtOTREQk0xT2VNOS1ZU1JuX2ZmaHl1dDNwSEoxZ3pDOWMwR1g3dG9iY2dWT2ZmaDg1MHRXc1dBSzFvcHh5RzN6czFGbDFzTXFINU9nOWM1ZGdzcVh3WlljSzVRZE5VQzBnZUxlc3dqRUYyT0xVbkdv0gGcAUFVX3lxTE10ZklTc0hfWkI0SkpaR203UkZlRl9SSmJLRy1MNDN1bzAzM2NMRWR1YVVnRWNRVnphSmF0UmgwUzREUjFVeHFqbS10TFVKQnR4N01uazBlSnY4ekNmVkpYa3NDSW5RTG82RkxhYTN4eVFVbFBuWHg4eFl6MjhzTDdVOHQzQjhOdEtiVllaZXpDR21sSGpuV0JZSVg2Mw?oc=5",
-      "source": "ABC News"
+      "headline": "For two Brown University students, school shooting was not their first - NBC News",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQ2J0SVFwZW1tTi1YbXdZUFZIeDNDcmlfdWpjcDBNS2pNTmxzNVlkTzNVU3h5dlRFbTU1MlVzeVFST0d3T2V1MmE4SV9CTWJpZm5RYjg4ZEI5am9keGxuOTlZQVBHQy01RXBKLWEzcTU1QTNUcEMzRmE5MWdGR3lCdzdNX211Z1dGcFVtSEpLa2tKelNSOVNnb2xjZ2lOdnQ0WHZBZUxrUF9DcjTSAVZBVV95cUxPZXVMNzVCMnJyUkNYb28ydWtYeFBlV0VUUnVzazBNNmVUTk1iZUd6Yy0zU3puU19PeFRFLTFYVUwxRVROR2lCaVBGck9ZNUIwcHAwWHltUQ?oc=5",
+      "source": "NBC News"
     },
     {
-      "headline": "After failure in the Senate, House GOP has its own health care proposal - NPR",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUm45cU1vb0UwNmR6Mkg2SHh3aE5EYUxsV2MtRjFHMTZ5VS1yRFY3eHJIZnlTcHBodTBoenFFQWg5SDZtTnFwY0pTTHdCZzdESHM1Y1laTl9hdEw2LWNZOENma1pqRVBBOTE1NmFqWWxLSFZxQVZHaENqSUZ4NTRIRDE1ZmNZSUM3aEE?oc=5",
+      "headline": "Gunmen kill at least 11 people at a Jewish event at Sydney's Bondi Beach - NPR",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPOGRwMTFfX05FMjBVYzdMUGtfLVBVdEY0bGJRV2htQVFCWERPTWU4Z0JaN3pQV0o2SXlkMXRYUHlwQ0tOdHRQYmE3dTAtRk81UFd3dzJFNGZVajk5eHd0VHQ5SGx2dnJOV185M2tNbnA3WUpxc0dfMkdpVzdQYzQ1ZWZ3?oc=5",
       "source": "NPR"
+    },
+    {
+      "headline": "2 U.S. service members, 1 civilian killed in ambush in Syria, Central Command says - PBS",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOczVNQ2xTSmFrcF8zVG9YSTFVbGhLbTFpT2ZqUFM2eThxdWpIVHE5VWM2OGVzOTJCWFEyS2djN0VQQ1o5bWxmLTk1WHBaaVJUSlN4a01FOHM1VlFYTVZkMG51UDJQaHZqX0tiV0tnR29sOEdEQ2haRE53Sk5mb1BTUU1SUFl0Q3NIbUFFbFJ1U3M3ZTVsZHN1UTgyeEJfWFJrd2taLUpacUtFOUdETXdlWE1kNzHSAboBQVVfeXFMTWVXNlpyc2NtYlhmMEhaTWNYSFg5YzRnWUJQanptMDR5VUdURFQtNzdUSTE2QnNmWHhlREFkVUgtZDZQLVNwMHBzS1hBWTFjb0RzeE9YLWpVOHZmSEEweVF6MDhsTUZOcDF5U1RRdGhpWldjeVlWdE5vZHI4X2h1cE5SODZzdVNRVVRzYk9BLWZiVVA5LXkxZ1Y4SXNmMWl2Z05LOTFBWUdhSmVHcjlaMGtFaDJlNDJ2RnNB?oc=5",
+      "source": "PBS"
     },
     {
       "headline": "Pittsburgh braces for heavy snowfall and frigid temperatures | Live First Alert Weather - CBS News",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcWxsRUVlSEpTREk2TkxsN0lud3BiYzhqVnd0Nk9zTlhHZFRCQjAxM2pmNnVJWGpKOXFNMWVzOWlDdWVMRzdDTEh5eVNCN3pwdU1QT1NsbmhXSkJWMTNvelR4NFpEZjc0NzQxN1V2S0RxY20xLUR0Wm5Hb1M5Vi0zalhVQjdoTGh0RXJuZExhOEZvS3FWNEpGR1ZkT1E5NEotRnFMNmlVLWpTcXBaa1pZYlREMEMtV01RM3JHWU9jcVhzR1VKbklmeU1ubVRtTDA?oc=5",
       "source": "CBS News"
-    },
-    {
-      "headline": "Chile votes in polarizing presidential runoff as far-right takes lead - NPR",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5NOEt4b3VWd25BczVzRmFLc1k1YXlXVVd4eGtvTExmZEt2VzFhWG53Z1pOcjg2M0pEXzJBOFVXYW91MkVueXhQenNDZktla3pNZWtBNFA0M3ZnSzl2X2lGcklnVlNVSi1jaXBxejdLTFdCcm9COEgzVQ?oc=5",
-      "source": "NPR"
     },
     {
       "headline": "Historic floods have washed away homes and stranded families in Washington state - PBS",
@@ -42,66 +47,5 @@
     }
   ],
   "predictions": [],
-  "trending": [
-    {
-      "keyword": "peter greene"
-    },
-    {
-      "keyword": "barcelona - osasuna"
-    },
-    {
-      "keyword": "timberwolves vs warriors"
-    },
-    {
-      "keyword": "heisman trophy"
-    },
-    {
-      "keyword": "winter storm warning"
-    },
-    {
-      "keyword": "shane's new app"
-    },
-    {
-      "keyword": "bitcoin price"
-    },
-    {
-      "keyword": "alabama football"
-    },
-    {
-      "keyword": "markets today"
-    },
-    {
-      "keyword": "weather montgomery"
-    },
-    {
-      "keyword": "samsung galaxy s25"
-    },
-    {
-      "keyword": "taylor swift tour"
-    },
-    {
-      "keyword": "spacex launch"
-    },
-    {
-      "keyword": "gta 6 news"
-    },
-    {
-      "keyword": "interest rates"
-    },
-    {
-      "keyword": "election results"
-    },
-    {
-      "keyword": "ai regulation"
-    },
-    {
-      "keyword": "nvidia stock"
-    },
-    {
-      "keyword": "cyber truck"
-    },
-    {
-      "keyword": "crypto regulation"
-    }
-  ]
+  "trending": []
 }
