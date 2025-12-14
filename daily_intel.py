@@ -1,4 +1,4 @@
- import json
+import json
 import datetime
 import yfinance as yf
 import feedparser
@@ -68,6 +68,7 @@ def get_polymarket_batch():
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
+        # Fetching 20 items just in case we need to skip a few bad ones
         url = "https://gamma-api.polymarket.com/events?limit=20&sort=volume&order=desc"
         response = requests.get(url, headers=headers).json()
         
@@ -105,9 +106,9 @@ def get_polymarket_batch():
     except Exception as e:
         print(f"Error fetching Polymarket: {e}")
         
-    # Fallback if empty
+    # Fallback if empty so the site doesn't look broken
     if not predictions:
-        predictions.append({"question": "Data Unavailable", "odds": "0", "id": "0"})
+        predictions.append({"question": "Data Temporarily Unavailable", "odds": "0", "id": "0"})
         
     return predictions
 
@@ -150,3 +151,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+     
