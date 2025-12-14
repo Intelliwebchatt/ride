@@ -1,27 +1,107 @@
 {
   "meta": {
-    "uploadedAt": "Dec 13, 3:30 PM"
+    "uploadedAt": "Dec 14, 04:25 AM"
   },
   "markets": [
-    {"name": "S&P 500", "price": "4,600", "change": "+0.4%"},
-    {"name": "Bitcoin", "price": "$98,000", "change": "-1.2%"},
-    {"name": "NVIDIA", "price": "$140.00", "change": "+2.5%"}
+    {
+      "name": "S&P 500",
+      "price": "6,827",
+      "change": "-1.1%"
+    },
+    {
+      "name": "NVIDIA",
+      "price": "175.02",
+      "change": "-3.3%"
+    }
   ],
-  "news": {
-    "headline": "SpaceX Successfully Launches Starship on 5th Test Flight",
-    "source": "Reuters",
-    "time": "2 hours ago"
-  },
-  "prediction": {
-    "question": "Will AI surpass human intelligence by 2027?",
-    "odds": "24"
-  },
+  "news": [
+    {
+      "headline": "Brown University shooting: Manhunt underway after 2 killed, 8 wounded - ABC News",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWlI5NEt3RVR5Qy1jOGoycmlCU2ZENDU2MHJTSTUwNVFtOTREQk0xT2VNOS1ZU1JuX2ZmaHl1dDNwSEoxZ3pDOWMwR1g3dG9iY2dWT2ZmaDg1MHRXc1dBSzFvcHh5RzN6czFGbDFzTXFINU9nOWM1ZGdzcVh3WlljSzVRZE5VQzBnZUxlc3dqRUYyT0xVbkdv0gGcAUFVX3lxTE10ZklTc0hfWkI0SkpaR203UkZlRl9SSmJLRy1MNDN1bzAzM2NMRWR1YVVnRWNRVnphSmF0UmgwUzREUjFVeHFqbS10TFVKQnR4N01uazBlSnY4ekNmVkpYa3NDSW5RTG82RkxhYTN4eVFVbFBuWHg4eFl6MjhzTDdVOHQzQjhOdEtiVllaZXpDR21sSGpuV0JZSVg2Mw?oc=5",
+      "source": "ABC News"
+    },
+    {
+      "headline": "After failure in the Senate, House GOP has its own health care proposal - NPR",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUm45cU1vb0UwNmR6Mkg2SHh3aE5EYUxsV2MtRjFHMTZ5VS1yRFY3eHJIZnlTcHBodTBoenFFQWg5SDZtTnFwY0pTTHdCZzdESHM1Y1laTl9hdEw2LWNZOENma1pqRVBBOTE1NmFqWWxLSFZxQVZHaENqSUZ4NTRIRDE1ZmNZSUM3aEE?oc=5",
+      "source": "NPR"
+    },
+    {
+      "headline": "Pittsburgh braces for heavy snowfall and frigid temperatures | Live First Alert Weather - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcWxsRUVlSEpTREk2TkxsN0lud3BiYzhqVnd0Nk9zTlhHZFRCQjAxM2pmNnVJWGpKOXFNMWVzOWlDdWVMRzdDTEh5eVNCN3pwdU1QT1NsbmhXSkJWMTNvelR4NFpEZjc0NzQxN1V2S0RxY20xLUR0Wm5Hb1M5Vi0zalhVQjdoTGh0RXJuZExhOEZvS3FWNEpGR1ZkT1E5NEotRnFMNmlVLWpTcXBaa1pZYlREMEMtV01RM3JHWU9jcVhzR1VKbklmeU1ubVRtTDA?oc=5",
+      "source": "CBS News"
+    },
+    {
+      "headline": "Chile votes in polarizing presidential runoff as far-right takes lead - NPR",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5NOEt4b3VWd25BczVzRmFLc1k1YXlXVVd4eGtvTExmZEt2VzFhWG53Z1pOcjg2M0pEXzJBOFVXYW91MkVueXhQenNDZktla3pNZWtBNFA0M3ZnSzl2X2lGcklnVlNVSi1jaXBxejdLTFdCcm9COEgzVQ?oc=5",
+      "source": "NPR"
+    },
+    {
+      "headline": "Historic floods have washed away homes and stranded families in Washington state - PBS",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOUVJCYWlXNjl1YjJoUGhsUm1NUTJSZkhTcUVHdjBMeTBLYkVlSDNuaXg2TlNNYWRiZUhRYkRGQXdneFpfYko1bVp1UXFQSmhrYnNqaGhyTWcweFZNUVNaWkZKMGFUc2d1aVBYTUExTUFzQlcxcnVoa21ObktmOXB1TmlyN0pUaDRUdXQtcHVOM2VvVVI4UDVINld3ampvZ05IVl9VdVFreWpzME1xTHltaEZZYnRmY28?oc=5",
+      "source": "PBS"
+    }
+  ],
+  "predictions": [],
   "trending": [
-    {"keyword": "peter greene"},
-    {"keyword": "barcelona - osasuna"},
-    {"keyword": "timberwolves vs warriors"},
-    {"keyword": "heisman trophy"},
-    {"keyword": "winter storm warning"},
-    {"keyword": "shane's new app"}
+    {
+      "keyword": "peter greene"
+    },
+    {
+      "keyword": "barcelona - osasuna"
+    },
+    {
+      "keyword": "timberwolves vs warriors"
+    },
+    {
+      "keyword": "heisman trophy"
+    },
+    {
+      "keyword": "winter storm warning"
+    },
+    {
+      "keyword": "shane's new app"
+    },
+    {
+      "keyword": "bitcoin price"
+    },
+    {
+      "keyword": "alabama football"
+    },
+    {
+      "keyword": "markets today"
+    },
+    {
+      "keyword": "weather montgomery"
+    },
+    {
+      "keyword": "samsung galaxy s25"
+    },
+    {
+      "keyword": "taylor swift tour"
+    },
+    {
+      "keyword": "spacex launch"
+    },
+    {
+      "keyword": "gta 6 news"
+    },
+    {
+      "keyword": "interest rates"
+    },
+    {
+      "keyword": "election results"
+    },
+    {
+      "keyword": "ai regulation"
+    },
+    {
+      "keyword": "nvidia stock"
+    },
+    {
+      "keyword": "cyber truck"
+    },
+    {
+      "keyword": "crypto regulation"
+    }
   ]
 }
