@@ -1,11 +1,11 @@
- import json
+import json
 import datetime
 import yfinance as yf
 import feedparser
 import requests
 
 # --- CONFIGURATION ---
-# PASTE YOUR TOP 20 SEARCHES HERE
+# PASTE YOUR TOP 20 SEARCHES HERE BETWEEN THE TRIPLE QUOTES
 RAW_TRENDING_LIST = """
 peter greene
 barcelona - osasuna
@@ -135,19 +135,15 @@ def main():
             "uploadedAt": datetime.datetime.now().strftime("%b %d, %I:%M %p")
         },
         "markets": get_markets(),
-        "news": get_news_batch(),         # Now returns 5 items
-        "predictions": get_polymarket_batch(), # Now returns 10 items
+        "news": get_news_batch(),         
+        "predictions": get_polymarket_batch(), 
         "trending": process_trending(RAW_TRENDING_LIST)
     }
     
     with open("data.json", "w") as f:
         json.dump(final_data, f, indent=2)
         
-    print("\nSUCCESS! Updated data.json with:")
-    print(f"- {len(final_data['markets'])} Market Tickers")
-    print(f"- {len(final_data['news'])} News Stories")
-    print(f"- {len(final_data['predictions'])} Predictions")
-    print(f"- {len(final_data['trending'])} Trending Searches")
+    print("\nSUCCESS! Updated data.json")
 
 if __name__ == "__main__":
     main()
