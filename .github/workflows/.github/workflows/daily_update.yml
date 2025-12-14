@@ -1,0 +1,38 @@
+name: Daily Intel Update
+
+on:
+  schedule:
+    # Runs at 6:00 AM CST every day
+    - cron: '0 12 * * *'
+  workflow_dispatch: # Adds a "Run Now" button
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install yfinance feedparser requests
+
+    - name: Run Intelligence Script
+      run: python daily_intel.py
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add data.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Daily Intel" && git push)
+        
