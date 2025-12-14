@@ -1,8 +1,9 @@
-import json
+ import json
 import datetime
 import yfinance as yf
 import feedparser
 import requests
+import ast
 
 # --- 1. GET MARKETS (Finance) ---
 def get_markets():
@@ -58,34 +59,55 @@ def get_news_batch():
     
     return news_list
 
-# --- 3. GET TOP 10 PREDICTIONS (Polymarket API) ---
+# --- 3. GET TOP 10 PREDICTIONS (Polymarket API - ROBUST MODE) ---
 def get_polymarket_batch():
     print("...Fetching Top 10 Predictions...")
     predictions = []
     try:
-        url = "https://gamma-api.polymarket.com/events?limit=10&sort=volume&order=desc"
-        response = requests.get(url).json()
+        # Added a User-Agent so we look like a real browser
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        }
+        url = "https://gamma-api.polymarket.com/events?limit=20&sort=volume&order=desc"
+        response = requests.get(url, headers=headers).json()
         
         for event in response:
+            if len(predictions) >= 10: break # Stop once we have 10 good ones
+            
             try:
-                title = event['title']
+                title = event.get('title', 'Unknown Prediction')
                 markets = event.get('markets', [])
                 main_market = markets[0] if markets else None
                 
                 if main_market:
-                    import ast
-                    outcomes = ast.literal_eval(main_market['outcomePrices'])
+                    # Robust parsing for outcomePrices
+                    raw_outcomes = main_market.get('outcomePrices', '["0", "0"]')
+                    
+                    # If it's a string (common), decode it. If it's already a list, use it.
+                    if isinstance(raw_outcomes, str):
+                        outcomes = ast.literal_eval(raw_outcomes)
+                    else:
+                        outcomes = raw_outcomes
+                        
+                    # Calculate percentage
                     yes_price = float(outcomes[0]) * 100
                     
                     predictions.append({
                         "question": title,
                         "odds": f"{yes_price:.0f}",
-                        "id": event['id']
+                        "id": event.get('id', '')
                     })
-            except:
+            except Exception as inner_e:
+                # If one fails, just skip it and try the next one
+                print(f"Skipped bad item: {inner_e}")
                 continue
+                
     except Exception as e:
         print(f"Error fetching Polymarket: {e}")
+        
+    # Fallback if empty
+    if not predictions:
+        predictions.append({"question": "Data Unavailable", "odds": "0", "id": "0"})
         
     return predictions
 
@@ -94,11 +116,9 @@ def get_google_trends():
     print("...Fetching Real-Time Google Trends...")
     trends = []
     try:
-        # This is the official RSS feed for US Daily Trends
         rss_url = "https://trends.google.com/trends/trendingsearches/daily/rss?geo=US"
         feed = feedparser.parse(rss_url)
         
-        # Grab the top 20 items
         for entry in feed.entries[:20]:
             trends.append({
                 "keyword": entry.title
@@ -106,8 +126,7 @@ def get_google_trends():
             
     except Exception as e:
         print(f"Error fetching Google Trends: {e}")
-        # Fallback list in case Google blocks the request
-        trends = [{"keyword": "System Error - Check Logs"}, {"keyword": "Manual Mode"}]
+        trends = [{"keyword": "Check Logs"}, {"keyword": "Manual Mode"}]
         
     return trends
 
@@ -120,14 +139,14 @@ def main():
         "markets": get_markets(),
         "news": get_news_batch(),         
         "predictions": get_polymarket_batch(), 
-        "trending": get_google_trends() # No more manual list!
+        "trending": get_google_trends() 
     }
     
     with open("data.json", "w") as f:
         json.dump(final_data, f, indent=2)
         
     print("\nSUCCESS! Dashboard Updated Successfully.")
-    print(f"- Fetched {len(final_data['trending'])} Trending Searches from Google.")
+    print(f"- Fetched {len(final_data['predictions'])} Predictions")
 
 if __name__ == "__main__":
     main()
