@@ -4,31 +4,6 @@ import yfinance as yf
 import feedparser
 import requests
 
-# --- CONFIGURATION ---
-# PASTE YOUR TOP 20 SEARCHES HERE BETWEEN THE TRIPLE QUOTES
-RAW_TRENDING_LIST = """
-peter greene
-barcelona - osasuna
-timberwolves vs warriors
-heisman trophy
-winter storm warning
-shane's new app
-bitcoin price
-alabama football
-markets today
-weather montgomery
-samsung galaxy s25
-taylor swift tour
-spacex launch
-gta 6 news
-interest rates
-election results
-ai regulation
-nvidia stock
-cyber truck
-crypto regulation
-"""
-
 # --- 1. GET MARKETS (Finance) ---
 def get_markets():
     print("...Fetching Market Data...")
@@ -63,7 +38,7 @@ def get_markets():
             
     return market_data
 
-# --- 2. GET TOP 5 NEWS (RSS) ---
+# --- 2. GET TOP 5 NEWS (Google News RSS) ---
 def get_news_batch():
     print("...Fetching Top 5 News Stories...")
     news_list = []
@@ -71,7 +46,6 @@ def get_news_batch():
         rss_url = "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en"
         feed = feedparser.parse(rss_url)
         
-        # Get top 5
         for entry in feed.entries[:5]:
             news_list.append({
                 "headline": entry.title,
@@ -89,7 +63,6 @@ def get_polymarket_batch():
     print("...Fetching Top 10 Predictions...")
     predictions = []
     try:
-        # Fetch top 10 by volume
         url = "https://gamma-api.polymarket.com/events?limit=10&sort=volume&order=desc"
         response = requests.get(url).json()
         
@@ -116,17 +89,27 @@ def get_polymarket_batch():
         
     return predictions
 
-# --- 4. PROCESS TRENDING LIST ---
-def process_trending(raw_text):
-    print("...Processing Trending List...")
-    lines = [line.strip() for line in raw_text.strip().split('\n') if line.strip()]
-    processed = []
-    # Take only top 20 if list is longer
-    for i, keyword in enumerate(lines[:20]): 
-        processed.append({
-            "keyword": keyword
-        })
-    return processed
+# --- 4. GET REAL GOOGLE TRENDS (RSS Feed) ---
+def get_google_trends():
+    print("...Fetching Real-Time Google Trends...")
+    trends = []
+    try:
+        # This is the official RSS feed for US Daily Trends
+        rss_url = "https://trends.google.com/trends/trendingsearches/daily/rss?geo=US"
+        feed = feedparser.parse(rss_url)
+        
+        # Grab the top 20 items
+        for entry in feed.entries[:20]:
+            trends.append({
+                "keyword": entry.title
+            })
+            
+    except Exception as e:
+        print(f"Error fetching Google Trends: {e}")
+        # Fallback list in case Google blocks the request
+        trends = [{"keyword": "System Error - Check Logs"}, {"keyword": "Manual Mode"}]
+        
+    return trends
 
 # --- MAIN EXECUTION ---
 def main():
@@ -137,13 +120,14 @@ def main():
         "markets": get_markets(),
         "news": get_news_batch(),         
         "predictions": get_polymarket_batch(), 
-        "trending": process_trending(RAW_TRENDING_LIST)
+        "trending": get_google_trends() # No more manual list!
     }
     
     with open("data.json", "w") as f:
         json.dump(final_data, f, indent=2)
         
-    print("\nSUCCESS! Updated data.json")
+    print("\nSUCCESS! Dashboard Updated Successfully.")
+    print(f"- Fetched {len(final_data['trending'])} Trending Searches from Google.")
 
 if __name__ == "__main__":
     main()
